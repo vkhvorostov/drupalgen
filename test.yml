@@ -1,0 +1,32 @@
+project_name: 'test'
+functionality:
+  domain: 'Education / Career'
+  tasks:
+    - name: 'About us'
+    - name: 'Contacts'
+    - name: 'Products'
+      component: 'panels'
+  component_configuration:
+    panels:
+      version: ~
+  theme: 'bartik'
+layout:
+  regions:
+    sidebar_second:
+      - search_form
+      - system_navigation
+      - user_login
+    content:
+      - system_main
+    footer:
+      - system_powered-by
+  blocks:
+    search_form: -1
+    system_navigation: 0
+    user_login: 1
+    system_main: 0
+    system_powered-by: 0
+theme:
+  palette:
+    top: '#dada4a'
+    bottom: '#f0f0f0'
