@@ -22,8 +22,11 @@ if ('functionality' in ymlConf):
         cmd = funcObj.getMakeCommand()
         print(cmd)
         subprocess.run(cmd.split())
-        cmd = funcObj.getInstallCommand(siteConf['login'], siteConf['pwd'], siteConf['dbmasterlogin'],
-            siteConf['dbmasterpwd'], siteConf['dbhost'], siteConf['dbprefix'], siteConf['dbpwd'])
+        cmd = funcObj.getInstallCommand(siteConf['dbmasterlogin'], siteConf['dbmasterpwd'],
+            siteConf['dbhost'], siteConf['dbprefix'], siteConf['dbpwd'])
+        print(cmd)
+        subprocess.run(cmd.split())
+        cmd = funcObj.getAdminPwdCommand(siteConf['adminpwd'])
         print(cmd)
         subprocess.run(cmd.split())
     except:
@@ -45,6 +48,9 @@ if ('theme' in ymlConf):
         if (not 'theme' in ymlConf['theme']) and ('theme' in ymlConf['functionality']):
             ymlConf['theme']['theme'] = ymlConf['functionality']['theme']
         themeObj = theme(ymlConf['project_name'], globalConf, ymlConf['theme'])
+        cmd = themeObj.getModuleEnableCommand()
+        print(cmd)
+        subprocess.run(cmd.split())
         cmd = themeObj.getColorCommand()
         print(cmd)
         subprocess.run(cmd.split(' ', maxsplit=5))

@@ -13,10 +13,12 @@ class functionality:
         'core': '7.x',
         'api': '2',
         'projects': {
-            'drupal': {'version': None}
+            'drupal': {'version': None},
+            'subtheme_color': { 'type': 'module', 'download': 'https://github.com/vkhvorostov/subtheme_color.git' }
         },
         'translations': ['ru']
     }
+    defaultDrupalThemes = ['bartik', 'garland', 'seven', 'stark']
 
 
     def __init__(self, projectName, globalConf, conf):
@@ -48,6 +50,9 @@ class functionality:
             else:
                 make['projects'][component] = {'version': None}
 
+        if (not self.conf['theme'] in self.defaultDrupalThemes):
+            make['projects'][self.conf['theme']] = {'version': None}
+
         fh = open(self.makeFileName, 'w')
         yaml.dump(make, fh)
         fh.close()
@@ -57,10 +62,13 @@ class functionality:
         return self.drushPath + ' make ' + self.makeFileName + ' ' + self.projectPath
 
 
-    def getInstallCommand(self, login, pwd, dbmasterlogin, dbmasterpwd, dbhost, dbprefix, dbpwd):
-        return self.drushPath + ' si standard -r ' + self.projectPath \
-               + ' --account-name ' + login + ' --account-pass ' + pwd \
+    def getInstallCommand(self, dbmasterlogin, dbmasterpwd, dbhost, dbprefix, dbpwd):
+        return self.drushPath + ' si standard -y -r ' + self.projectPath \
                + ' --db-su=' + dbmasterlogin + ' --db-su-pw=' + dbmasterpwd \
                + ' --db-url=mysql://' + dbprefix + '_' + self.projectName + ':' + dbpwd + '@' + dbhost \
                + '/' + dbprefix + '_' + self.projectName + ' --site-name=' \
                + self.projectName + ' --locale=ru'
+
+
+    def getAdminPwdCommand(self, pwd):
+        return self.drushPath + ' -r ' + self.projectPath + ' upwd admin --password=' + pwd

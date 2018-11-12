@@ -24,8 +24,11 @@ class theme:
 
 
     def getColorCommand(self):
-        cmd = self.drushPath + ' -r ' + self.projectPath + ' stc ' + self.conf['theme'] \
-            + " " + json.dumps(self.conf['palette']) + ""
-        return cmd
+        return self.drushPath + ' -r ' + self.projectPath + ' stc ' + self.conf['theme'] \
+            + " " + json.dumps(self.conf['palette'])
+
+
+    def getModuleEnableCommand(self):
+        return self.drushPath + ' -y -r ' + self.projectPath + ' en subtheme_color'
 
 

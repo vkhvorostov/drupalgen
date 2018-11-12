@@ -4,8 +4,7 @@ globalConf = {
 }
 
 siteConf = {
-    'login': 'admin',
-    'pwd': 'secure',
+    'adminpwd': 'secure',
     'dbmasterlogin': 'mysqladmin',
     'dbmasterpwd': 'secure',
     'dbhost': 'localhost',
