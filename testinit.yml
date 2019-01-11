@@ -1,13 +1,15 @@
-project_name: 'test'
+project_name: 'testinit'
 functionality:
-  domain: 'Education / Career'
+  domain: ''
   tasks:
     - name: 'About us'
+    - name: 'Academics'
+    - name: 'Admissions'
+    - name: 'Campus Life'
+      component: 'devel'
     - name: 'Contacts'
-    - name: 'Products'
-      component: 'panels'
   component_configuration:
-    panels:
+    devel:
       version: ~
   theme: 'bartik'
 layout:
@@ -28,5 +30,12 @@ layout:
     system__powered-by: 0
 theme:
   palette:
-    top: '#dada4a'
-    bottom: '#f0f0f0'
+    top: '#0779bf'
+    bottom: '#48a9e4'
+    bg: '#ffffff'
+    sidebar: '#f6f6f2'
+    sidebarborders: '#f9f9f9'
+    footer: '#292929'
+    titleslogan: '#fffeff'
+    text: '#3b3b3b'
+    link: '#0071B3'

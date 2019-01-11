@@ -27,7 +27,7 @@ class layout:
         for region in self.conf['regions']:
             cmdStart = self.drushPath + ' -r ' + self.projectPath + ' block-configure' + ' --region=' + region
             for block in self.conf['regions'][region]:
-                (module, delta) = block.split('_')
+                (module, delta) = block.split('__')
                 cmd = cmdStart + ' --module=' + module + ' --delta=' + delta
                 if (block in self.conf['blocks']):
                     cmd = cmd + ' --weight=' + str(self.conf['blocks'][block])

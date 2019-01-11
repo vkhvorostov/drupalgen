@@ -7,7 +7,9 @@ import config
 globalConf = config.globalConf
 siteConf = config.siteConf
 
-fh = open('test.yml', 'r')
+filename = sys.argv[1]
+
+fh = open(filename, 'r')
 ymlConf = yaml.load(fh.read())
 fh.close()
 

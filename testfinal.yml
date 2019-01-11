@@ -1,0 +1,56 @@
+project_name: 'testfinal'
+functionality:
+  domain: 'Education / Career'
+  tasks:
+    - name: 'About us'
+    - name: 'Academics'
+      component: 'views'
+    - name: 'Admissions'
+      component: 'ctools'
+    - name: 'Campus Life'
+      component: 'devel'
+    - name: 'Contacts'
+      component: 'panels'
+  component_configuration:
+    views:
+      version: ~
+    ctools:
+      version: ~
+    devel:
+      version: ~
+    panels:
+      version: ~
+  theme: 'bartik'
+layout:
+  regions:
+    sidebar_second:
+      - search__form
+      - system__navigation
+      - user__login
+      - views__right_column-block
+    content:
+      - panels_mini__frontpage_banner
+      - panels_mini__frontpage_news_pane
+      - system__main
+    footer:
+      - system__powered-by
+  blocks:
+    search__form: -1
+    views__right_column-block: 0
+    system__navigation: 1
+    user__login: 2
+    panels_mini__frontpage_banner: -1
+    panels_mini__frontpage_news_pane: 0
+    system__main: 1
+    system__powered-by: 0
+theme:
+  palette:
+    top: '#1f64b4'
+    bottom: '#1f64b4'
+    bg: '#ffffff'
+    sidebar: '#c2d8f1'
+    sidebarborders: '#c2d8f1'
+    footer: '#25376c'
+    titleslogan: '#fffeff'
+    text: '#3b3b3b'
+    link: '#1f64b4'
