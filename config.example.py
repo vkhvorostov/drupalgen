@@ -1,6 +1,7 @@
 globalConf = {
     'drushPath': 'vendor/bin/drush',
-    'projectsPath': 'html/'
+    'projectsPath': 'html/',
+    'makePath': 'drupalgen_make/'
 }
 
 siteConf = {

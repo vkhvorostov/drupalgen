@@ -26,10 +26,10 @@ if ('functionality' in ymlConf):
         subprocess.run(cmd.split())
         cmd = funcObj.getInstallCommand(siteConf['dbmasterlogin'], siteConf['dbmasterpwd'],
             siteConf['dbhost'], siteConf['dbprefix'], siteConf['dbpwd'])
-        print(cmd)
+        print(funcObj.getPrintInstallCommand())
         subprocess.run(cmd.split())
         cmd = funcObj.getAdminPwdCommand(siteConf['adminpwd'])
-        print(cmd)
+        #print(cmd)
         subprocess.run(cmd.split())
     except:
         print(sys.exc_info()[1])

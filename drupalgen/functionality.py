@@ -28,7 +28,7 @@ class functionality:
         self.projectName = projectName
         self.drushPath = globalConf['drushPath']
         self.projectPath = globalConf['projectsPath'] + self.projectName
-        self.makeFileName = 'make_' + self.projectName + '.yml'
+        self.makeFileName = globalConf['makePath'] + 'make_' + self.projectName + '.yml'
         self.conf = conf
         pFile = Path(self.projectPath)
         if (pFile.exists()):
@@ -67,6 +67,12 @@ class functionality:
                + ' --db-su=' + dbmasterlogin + ' --db-su-pw=' + dbmasterpwd \
                + ' --db-url=mysql://' + dbprefix + '_' + self.projectName + ':' + dbpwd + '@' + dbhost \
                + '/' + dbprefix + '_' + self.projectName + ' --site-name=' \
+               + self.projectName + ' --locale=ru'
+
+
+    def getPrintInstallCommand(self):
+        return self.drushPath + ' si standard -y -r ' + self.projectPath \
+               + ' --site-name=' \
                + self.projectName + ' --locale=ru'
 
 
