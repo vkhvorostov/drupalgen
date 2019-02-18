@@ -19,6 +19,7 @@ class functionality:
         'translations': ['ru']
     }
     defaultDrupalThemes = ['bartik', 'garland', 'seven', 'stark']
+    defaultEnabledTheme = 'bartik'
 
 
     def __init__(self, projectName, globalConf, conf):
@@ -78,3 +79,10 @@ class functionality:
 
     def getAdminPwdCommand(self, pwd):
         return self.drushPath + ' -r ' + self.projectPath + ' upwd admin --password=' + pwd
+
+    def getThemeChangeCommands(self):
+        result = list()
+        if (self.conf['theme'] != self.defaultEnabledTheme):
+            result.append(self.drushPath + ' -r ' + self.projectPath + ' -y en ' + self.conf['theme'])
+            result.append(self.drushPath + ' -r ' + self.projectPath + ' vset theme_default ' + self.conf['theme'])
+        return result
